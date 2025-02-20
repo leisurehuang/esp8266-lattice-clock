@@ -11,7 +11,7 @@ void Lattice::init()
   if (latticeSetting.brightness > 0) {
     setBrightness(latticeSetting.brightness, true);  
   } else {
-    setBrightness(0x4, false);                 // 将亮度设置为最低
+    setBrightness(0x4, true);                 // 将亮度设置为最低
   }
   memcpy(latticeSetting.userData, noseticon, sizeof(noseticon));  // 初始化自定义数据
   latticeSetting.speed = 1;                                       // 自定义动画速度
