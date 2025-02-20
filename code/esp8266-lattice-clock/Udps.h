@@ -42,7 +42,7 @@ private:
   /**
    * @brief NTP服务器网址
    */
-  const char *ntpServerName = "cn.ntp.org.cn";
+  const char *ntpServerName = "ntp.aliyun.com";
 
   /**
    * @brief 服务器IP

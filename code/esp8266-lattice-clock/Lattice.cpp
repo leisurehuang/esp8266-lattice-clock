@@ -8,7 +8,11 @@ void Lattice::init()
   latticeSetting.isShutdown = false;                              // 默认是启用点阵屏幕
   latticeSetting.brightness = EEPROMTool.loadDataOne(BRIGHTNESS); // 从eeprom中获取亮度信息
   shutdown(latticeSetting.isShutdown);                            // 是否关闭点阵屏幕
-  setBrightness(latticeSetting.brightness, true);                 // 将亮度设置为最低
+  if (latticeSetting.brightness > 0) {
+    setBrightness(latticeSetting.brightness, true);  
+  } else {
+    setBrightness(0x4, false);                 // 将亮度设置为最低
+  }
   memcpy(latticeSetting.userData, noseticon, sizeof(noseticon));  // 初始化自定义数据
   latticeSetting.speed = 1;                                       // 自定义动画速度
   initData();                                                     // 初始化点阵显示内容
